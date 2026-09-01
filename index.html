@@ -12,48 +12,172 @@
 
         body {
             margin: 0;
-            padding: 0;
-            font-family: sans-serif;
+            padding-top: 70px; /* Compensa a barra de navegação fixa */
+            font-family: Arial, sans-serif;
             background-color: #400368;
+            color: #ebe70b;
         }
 
+        /* Menu de Navegação Fixo */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a012d;
+            border-bottom: 3px solid #65f704;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #65f704;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .navbar-links a:hover {
+            color: #65f704;
+        }
+
+        /* Cabeçalho Principal */
         header {
             background-color: #2e771c;
             color: #FFFFFF;
             text-align: center;
-            margin: 0 auto;
-            padding: 16px;
+            margin: 20px auto;
+            padding: 20px;
             border: 5px solid #65f704;
+            max-width: 900px;
+            border-radius: 8px;
+            width: 92%;
         }
 
         main {
-            background-color: #400368;
-            color: #ebe70b;
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
-            padding: 20px;
+            padding: 10px 20px 40px 20px;
         }
 
+        article {
+            background-color: #2b0247;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #65f704;
+            scroll-margin-top: 80px; /* Garante scroll suave pelo menu */
+        }
+
+        /* Responsividade para mídias (Imagens e iFrames) */
         img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 15px auto;
+            border-radius: 8px;
         }
 
-        iframe {
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
             max-width: 100%;
-            margin: 10px auto;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Interações dos Botões */
+        .actions {
+            margin-top: 15px;
         }
 
         button {
             cursor: pointer;
-            padding: 6px 12px;
+            padding: 10px 18px;
             margin: 5px;
+            border: 2px solid #65f704;
+            border-radius: 20px;
+            background-color: #400368;
+            color: #ebe70b;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #65f704;
+            color: #400368;
+        }
+
+        button.ativo {
+            background-color: #ebe70b;
+            color: #400368;
+            border-color: #ebe70b;
+        }
+
+        /* Ajustes para Dispositivos Móveis */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            body {
+                padding-top: 90px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            article {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">MUSIC & GAME</a>
+        <ul class="navbar-links">
+            <li><a href="#apresentacao">Início</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#musicas">Músicas</a></li>
+        </ul>
+    </nav>
 
     <header>
         <h1>O BLOG MUSICandGAME</h1>
@@ -62,136 +186,88 @@
 
     <main>
 
-        <div>
+        <article id="apresentacao">
             <img src="image.png" 
-                 alt="Logotipo circular nas cores roxo, neon e dourado com o nome 'PLAYTUNE' no topo. No centro, há um dragão e um soldado futurista acima de dois controles de videogame e uma guitarra em chamas. Em destaque na parte inferior, o texto em letras grandes 'ZONA ROCK'. O fundo simula um disco de vinil.">
+                 alt="Logotipo circular nas cores roxo, neon e dourado com o nome 'PLAYTUNE' no topo."
+                 width="300" height="300" loading="lazy">
             
             <p>Por: Leandro Oliveira</p>
             <p>Boas-vindas ao meu blog onde irei mostrar novos jogos, comentários de fases de jogos e sugestão de boa música.</p>
 
-            <button type="button" aria-label="Curtir">
+            <button type="button" aria-label="Curtir apresentação">
                 <span aria-hidden="true">✅</span>
                 <span>0</span>
             </button>
-        </div>
+        </article>
 
-        <h1>GAME - Clair Obscur: Expedition 33</h1>
-        <p>Ai galera este é o trailer do jogo Clair Obscur: Expedition 33. Pelo que andei pesquisando me parece ser um ótimo jogo.</p>
+        <article id="games">
+            <h2>GAME - Clair Obscur: Expedition 33</h2>
+            <p>Ai galera este é o trailer do jogo Clair Obscur: Expedition 33. Pelo que andei pesquisando me parece ser um ótimo jogo.</p>
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/qEy3moXpIPM?si=tshaz6lN_IpEkWcH"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/qEy3moXpIPM?si=tshaz6lN_IpEkWcH"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
 
-        <p>Dá um click ai se gostou ou não gostou</p> 
-        <button>👍 <span>0</span></button>
-        <button>👎 <span>0</span></button>
+            <p>Dá um click ai se gostou ou não gostou</p> 
+            <div class="actions">
+                <button type="button" aria-label="Gostei do vídeo">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei do vídeo">👎 <span>0</span></button>
+            </div>
+        </article>
 
-        <p>Muito bom não é mesmo!!!!</p>
-        <p>Bom, vamos lá! Outro jogo, lançamento que pelo jeito vai ser muito loco de se jogar e gastar um bom tempo, mas com certeza que valerá a pena....</p>
-        <p>O nome desse jogo fodático e GEARS OF WAR E-DAY segue o trailer</p>
+        <article>
+            <h2>GEARS OF WAR E-DAY</h2>
+            <p>O nome desse jogo fodático e GEARS OF WAR E-DAY segue o trailer</p>
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/EC20gLfUHeA?si=rM0Gu_h4qSwvS6oB"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EC20gLfUHeA?si=rM0Gu_h4qSwvS6oB"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
 
-        <p>Dá um click ai se gostou ou não gostou</p> 
-        <button>👍 <span>0</span></button>
-        <button>👎 <span>0</span></button>
+            <p>Dá um click ai se gostou ou não gostou</p> 
+            <div class="actions">
+                <button type="button" aria-label="Gostei do vídeo">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei do vídeo">👎 <span>0</span></button>
+            </div>
+        </article>
 
-        <p>Este jogo vai será animal demais .....</p>
-        <p>Segue mais um jogaço!!! Olha este lançamento, pega esse trailer ai...</p>
+        <article id="musicas">
+            <p>UUHHULLL DOIDO DEMAIS</p>
+            <h2>Música: Dr. Feelgood - She Does It Right</h2>
+            <p>Agora, escuta esse som ai, pra animar o blog!!! Som da banda chamada Dr. Feelgood, musica: she does it right.</p>
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3iW1i78zFvk?si=XcVq1xvixp9D0iTW"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <p>Dá um click ai se gostou ou não gostou</p> 
-        <button>👍 <span>0</span></button>
-        <button>👎 <span>0</span></button>
-
-        <p>UUHHULLL DOIDO DEMAIS</p>
-        <p>Agora, escuta esse som ai, pra animar o blog!!! Som da banda chamada Dr. Feelgood, musica: she does it right.</p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/iHm7uIC84YM?si=uGwOH0v1w8Bd1RlT"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <p>É isso ai hermanos, bora pra mais um trailer de um jogo laçmento sem perder tempo</p>
-        <p>Crazy Taxi: World Tour: A SEGA confirmou o retorno da clássica franquia com campanha, modo multiplayer online e corridas internacionais, com estreia prevista para 2027.</p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/KXfYfTsoaIM?si=qmlCtB12KrE0zRLR"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <p>Dá um click ai se gostou ou não gostou</p> 
-        <button>👍 <span>0</span></button>
-        <button>👎 <span>0</span></button>
-
-        <p>Bora lá, segue mais um lançamento da showcase 2026 da xobox, vida longa ao games brothers.... </p>
-        <p>Metro 2039: Primeira prévia oficial de gameplay da nova e aguardada aventura na Moscou pós-apocalíptica, com lançamento previsto para fevereiro de 2027.</p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/9bMiy7ApF5c?si=VOf1H0mc6NB0LPS9"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <p>Dá um click ai se gostou ou não gostou</p> 
-        <button>👍 <span>0</span></button>
-        <button>👎 <span>0</span></button>
-
-        <p>Vamos lá, a este espetáculo de jogo, que estará disponível em breve e que me fez lembrar de uma filha de um grande amigo...bjus Sophia.... segue o trailer...</p>
-        <p>Resonance: A Plague Tale Legacy é o novo jogo da aclamada franquia da Asobo Studio e da Focus Entertainment, com lançamento oficial confirmado para 27 de agosto de 2026</p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/K3wOM3Fq3BI?si=Z7lLVAbyuK2nRt4I"
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <p>Dá um click ai se gostou ou não gostou</p> 
-        <button>👍 <span>0</span></button>
-        <button>👎 <span>0</span></button>
-
-        <p>Solta o som MAESTRO</p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/vPzfKe_G4Ng?si=FYEnwE3yUnQhEjcR"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <p>Ai galera como diz a moça no trailer se você é fã de super herois se prepara que ai vem coisa boa.....valeuuu</p>
-        
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/AWTiJBNIvrA?si=BjuMf3w5zziOhxmm"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <p>Dá um click ai se gostou ou não gostou</p> 
-        <button>👍 <span>0</span></button>
-        <button>👎 <span>0</span></button>
-
-        <p>Boa ..boa ...bora soltar mais um som ai das antiga mas muito bom.....</p>
-
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/eMK4cfXj5c0?si=CaFq-NBPeME4cijl"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/iHm7uIC84YM?si=uGwOH0v1w8Bd1RlT"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+        </article>
 
     </main>
 
     <script>
         const botoes = document.querySelectorAll("button");
 
-        botoes.forEach(function (botao) {
-            botao.addEventListener("click", function () {
-                console.log("fui clicado");
-                let texto = botao.querySelector("span:last-child");
-                if (texto) {
-                    texto.textContent = parseInt(texto.textContent) + 1;
+        botoes.forEach((botao) => {
+            botao.dataset.clicado = "false";
+
+            botao.addEventListener("click", () => {
+                const textoContador = botao.querySelector("span:last-child");
+
+                if (textoContador) {
+                    let contagemAtual = parseInt(textoContador.textContent, 10);
+
+                    if (botao.dataset.clicado === "false") {
+                        contagemAtual += 1;
+                        botao.dataset.clicado = "true";
+                        botao.classList.add("ativo");
+                    } else {
+                        contagemAtual -= 1;
+                        botao.dataset.clicado = "false";
+                        botao.classList.remove("ativo");
+                    }
+
+                    textoContador.textContent = contagemAtual;
                 }
             });
         });
