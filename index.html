@@ -12,13 +12,13 @@
 
         body {
             margin: 0;
-            padding-top: 70px; /* Compensa a barra de navegação fixa */
-            font-family: Arial, sans-serif;
+            padding-top: 70px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #400368;
             color: #ebe70b;
         }
 
-        /* Menu de Navegação Fixo */
+        /* Menu de Navegação */
         .navbar {
             position: fixed;
             top: 0;
@@ -30,7 +30,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 12px 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
 
         .navbar-brand {
@@ -38,12 +39,13 @@
             font-weight: bold;
             color: #65f704;
             text-decoration: none;
+            letter-spacing: 1px;
         }
 
         .navbar-links {
             list-style: none;
             display: flex;
-            gap: 15px;
+            gap: 20px;
             margin: 0;
             padding: 0;
         }
@@ -51,8 +53,7 @@
         .navbar-links a {
             color: #ffffff;
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: bold;
+            font-weight: 600;
             transition: color 0.2s;
         }
 
@@ -60,7 +61,6 @@
             color: #65f704;
         }
 
-        /* Cabeçalho Principal */
         header {
             background-color: #2e771c;
             color: #FFFFFF;
@@ -69,8 +69,12 @@
             padding: 20px;
             border: 5px solid #65f704;
             max-width: 900px;
-            border-radius: 8px;
             width: 92%;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
         }
 
         main {
@@ -83,13 +87,18 @@
         article {
             background-color: #2b0247;
             border-radius: 8px;
-            padding: 20px;
+            padding: 24px;
             margin-bottom: 30px;
             border: 1px solid #65f704;
-            scroll-margin-top: 80px; /* Garante scroll suave pelo menu */
+            scroll-margin-top: 90px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        /* Responsividade para mídias (Imagens e iFrames) */
+        article h2 {
+            color: #65f704;
+            margin-top: 0;
+        }
+
         img {
             max-width: 100%;
             height: auto;
@@ -98,14 +107,16 @@
             border-radius: 8px;
         }
 
+        /* Container responsivo para vídeos (16:9) */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             max-width: 100%;
             margin: 15px 0;
             border-radius: 8px;
+            background-color: #000;
         }
 
         .video-container iframe {
@@ -117,20 +128,20 @@
             border: 0;
         }
 
-        /* Interações dos Botões */
         .actions {
             margin-top: 15px;
         }
 
         button {
             cursor: pointer;
-            padding: 10px 18px;
+            padding: 8px 16px;
             margin: 5px;
             border: 2px solid #65f704;
             border-radius: 20px;
             background-color: #400368;
             color: #ebe70b;
             font-weight: bold;
+            font-size: 0.95rem;
             transition: all 0.2s ease;
         }
 
@@ -145,24 +156,24 @@
             border-color: #ebe70b;
         }
 
-        /* Ajustes para Dispositivos Móveis */
+        /* Ajustes Mobile */
         @media (max-width: 600px) {
             .navbar {
                 flex-direction: column;
-                gap: 8px;
+                gap: 10px;
                 padding: 10px;
             }
 
             body {
-                padding-top: 90px;
+                padding-top: 95px;
             }
 
             header h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
 
             article {
-                padding: 15px;
+                padding: 16px;
             }
         }
     </style>
@@ -188,10 +199,9 @@
 
         <article id="apresentacao">
             <img src="image.png" 
-                 alt="Logotipo circular nas cores roxo, neon e dourado com o nome 'PLAYTUNE' no topo."
-                 width="300" height="300" loading="lazy">
+                 alt="Logotipo circular nas cores roxo, neon e dourado com o nome 'PLAYTUNE' no topo. No centro, há um dragão e um soldado futurista acima de dois controles de videogame e uma guitarra em chamas. Em destaque na parte inferior, o texto em letras grandes 'ZONA ROCK'. O fundo simula um disco de vinil.">
             
-            <p>Por: Leandro Oliveira</p>
+            <p><strong>Por: Leandro Oliveira</strong></p>
             <p>Boas-vindas ao meu blog onde irei mostrar novos jogos, comentários de fases de jogos e sugestão de boa música.</p>
 
             <button type="button" aria-label="Curtir apresentação">
@@ -209,15 +219,17 @@
                     title="YouTube video player" allowfullscreen></iframe>
             </div>
 
-            <p>Dá um click ai se gostou ou não gostou</p> 
+            <p>Dá um click ai se gostou ou não gostou</p>
             <div class="actions">
-                <button type="button" aria-label="Gostei do vídeo">👍 <span>0</span></button>
-                <button type="button" aria-label="Não gostei do vídeo">👎 <span>0</span></button>
+                <button type="button" aria-label="Gostei">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei">👎 <span>0</span></button>
             </div>
         </article>
 
         <article>
             <h2>GEARS OF WAR E-DAY</h2>
+            <p>Muito bom não é mesmo!!!!</p>
+            <p>Bom, vamos lá! Outro jogo, lançamento que pelo jeito vai ser muito loco de se jogar e gastar um bom tempo, mas com certeza que valerá a pena....</p>
             <p>O nome desse jogo fodático e GEARS OF WAR E-DAY segue o trailer</p>
 
             <div class="video-container">
@@ -225,20 +237,124 @@
                     title="YouTube video player" allowfullscreen></iframe>
             </div>
 
-            <p>Dá um click ai se gostou ou não gostou</p> 
+            <p>Dá um click ai se gostou ou não gostou</p>
             <div class="actions">
-                <button type="button" aria-label="Gostei do vídeo">👍 <span>0</span></button>
-                <button type="button" aria-label="Não gostei do vídeo">👎 <span>0</span></button>
+                <button type="button" aria-label="Gostei">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <article>
+            <h2>Lançamento em Destaque</h2>
+            <p>Este jogo vai será animal demais .....</p>
+            <p>Segue mais um jogaço!!! Olha este lançamento, pega esse trailer ai...</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/3iW1i78zFvk?si=XcVq1xvixp9D0iTW"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+
+            <p>Dá um click ai se gostou ou não gostou</p>
+            <div class="actions">
+                <button type="button" aria-label="Gostei">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei">👎 <span>0</span></button>
             </div>
         </article>
 
         <article id="musicas">
+            <h2>Dr. Feelgood - She Does It Right</h2>
             <p>UUHHULLL DOIDO DEMAIS</p>
-            <h2>Música: Dr. Feelgood - She Does It Right</h2>
             <p>Agora, escuta esse som ai, pra animar o blog!!! Som da banda chamada Dr. Feelgood, musica: she does it right.</p>
 
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/iHm7uIC84YM?si=uGwOH0v1w8Bd1RlT"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+        </article>
+
+        <article>
+            <h2>Crazy Taxi: World Tour</h2>
+            <p>É isso ai hermanos, bora pra mais um trailer de um jogo laçmento sem perder tempo</p>
+            <p>Crazy Taxi: World Tour: A SEGA confirmou o retorno da clássica franquia com campanha, modo multiplayer online e corridas internacionais, com estreia prevista para 2027.</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/KXfYfTsoaIM?si=qmlCtB12KrE0zRLR"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+
+            <p>Dá um click ai se gostou ou não gostou</p>
+            <div class="actions">
+                <button type="button" aria-label="Gostei">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <article>
+            <h2>Metro 2039</h2>
+            <p>Bora lá, segue mais um lançamento da showcase 2026 da xobox, vida longa ao games brothers.... </p>
+            <p>Metro 2039: Primeira prévia oficial de gameplay da nova e aguardada aventura na Moscou pós-apocalíptica, com lançamento previsto para fevereiro de 2027.</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/9bMiy7ApF5c?si=VOf1H0mc6NB0LPS9"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+
+            <p>Dá um click ai se gostou ou não gostou</p>
+            <div class="actions">
+                <button type="button" aria-label="Gostei">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <article>
+            <h2>Resonance: A Plague Tale Legacy</h2>
+            <p>Vamos lá, a este espetáculo de jogo, que estará disponível em breve e que me fez lembrar de uma filha de um grande amigo...bjus Sophia.... segue o trailer...</p>
+            <p>Resonance: A Plague Tale Legacy é o novo jogo da aclamada franquia da Asobo Studio e da Focus Entertainment, com lançamento oficial confirmado para 27 de agosto de 2026</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/K3wOM3Fq3BI?si=Z7lLVAbyuK2nRt4I"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+
+            <p>Dá um click ai se gostou ou não gostou</p>
+            <div class="actions">
+                <button type="button" aria-label="Gostei">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <article>
+            <h2>Música - Maestro</h2>
+            <p>Solta o som MAESTRO</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/vPzfKe_G4Ng?si=FYEnwE3yUnQhEjcR"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+        </article>
+
+        <article>
+            <h2>Super-Heróis</h2>
+            <p>Ai galera como diz a moça no trailer se você é fã de super herois se prepara que ai vem coisa boa.....valeuuu</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/AWTiJBNIvrA?si=BjuMf3w5zziOhxmm"
+                    title="YouTube video player" allowfullscreen></iframe>
+            </div>
+
+            <p>Dá um click ai se gostou ou não gostou</p>
+            <div class="actions">
+                <button type="button" aria-label="Gostei">👍 <span>0</span></button>
+                <button type="button" aria-label="Não gostei">👎 <span>0</span></button>
+            </div>
+        </article>
+
+        <article>
+            <h2>Música das Antigas</h2>
+            <p>Boa ..boa ...bora soltar mais um som ai das antiga mas muito bom.....</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/eMK4cfXj5c0?si=CaFq-NBPeME4cijl"
                     title="YouTube video player" allowfullscreen></iframe>
             </div>
         </article>
@@ -248,26 +364,11 @@
     <script>
         const botoes = document.querySelectorAll("button");
 
-        botoes.forEach((botao) => {
-            botao.dataset.clicado = "false";
-
-            botao.addEventListener("click", () => {
-                const textoContador = botao.querySelector("span:last-child");
-
-                if (textoContador) {
-                    let contagemAtual = parseInt(textoContador.textContent, 10);
-
-                    if (botao.dataset.clicado === "false") {
-                        contagemAtual += 1;
-                        botao.dataset.clicado = "true";
-                        botao.classList.add("ativo");
-                    } else {
-                        contagemAtual -= 1;
-                        botao.dataset.clicado = "false";
-                        botao.classList.remove("ativo");
-                    }
-
-                    textoContador.textContent = contagemAtual;
+        botoes.forEach(function (botao) {
+            botao.addEventListener("click", function () {
+                let texto = botao.querySelector("span:last-child");
+                if (texto) {
+                    texto.textContent = parseInt(texto.textContent, 10) + 1;
                 }
             });
         });
