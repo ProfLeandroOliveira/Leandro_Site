@@ -84,7 +84,7 @@
             padding: 10px 20px 40px 20px;
         }
 
-        article {
+        article, section.comments-section {
             background-color: #2b0247;
             border-radius: 8px;
             padding: 24px;
@@ -92,11 +92,17 @@
             border: 1px solid #65f704;
             scroll-margin-top: 90px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            text-align: left;
         }
 
-        article h2 {
+        article h2, section.comments-section h2 {
             color: #65f704;
             margin-top: 0;
+            text-align: center;
+        }
+
+        article p {
+            text-align: center;
         }
 
         img {
@@ -130,6 +136,7 @@
 
         .actions {
             margin-top: 15px;
+            text-align: center;
         }
 
         button {
@@ -150,10 +157,58 @@
             color: #400368;
         }
 
-        button.ativo {
-            background-color: #ebe70b;
-            color: #400368;
+        /* Estilos do Formulário de Comentários */
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .comment-form input, 
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #65f704;
+            background-color: #1a012d;
+            color: #ffffff;
+            font-family: inherit;
+        }
+
+        .comment-form input:focus, 
+        .comment-form textarea:focus {
+            outline: none;
             border-color: #ebe70b;
+        }
+
+        .comment-form button {
+            align-self: flex-start;
+        }
+
+        /* Lista de Comentários */
+        .comment-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .comment-item {
+            background-color: #1a012d;
+            border-left: 4px solid #65f704;
+            padding: 12px 16px;
+            border-radius: 4px;
+        }
+
+        .comment-item .author {
+            font-weight: bold;
+            color: #65f704;
+            margin-bottom: 4px;
+        }
+
+        .comment-item .text {
+            color: #ffffff;
+            margin: 0;
         }
 
         /* Ajustes Mobile */
@@ -172,7 +227,7 @@
                 font-size: 1.4rem;
             }
 
-            article {
+            article, section.comments-section {
                 padding: 16px;
             }
         }
@@ -187,6 +242,7 @@
             <li><a href="#apresentacao">Início</a></li>
             <li><a href="#games">Games</a></li>
             <li><a href="#musicas">Músicas</a></li>
+            <li><a href="#comentarios">Comentários</a></li>
         </ul>
     </nav>
 
@@ -204,12 +260,15 @@
             <p><strong>Por: Leandro Oliveira</strong></p>
             <p>Boas-vindas ao meu blog onde irei mostrar novos jogos, comentários de fases de jogos e sugestão de boa música.</p>
 
-            <button type="button" aria-label="Curtir apresentação">
-                <span aria-hidden="true">✅</span>
-                <span>0</span>
-            </button>
+            <div class="actions">
+                <button type="button" aria-label="Curtir apresentação">
+                    <span aria-hidden="true">✅</span>
+                    <span>0</span>
+                </button>
+            </div>
         </article>
 
+        <!-- 1. Clair Obscur -->
         <article id="games">
             <h2>GAME - Clair Obscur: Expedition 33</h2>
             <p>Ai galera este é o trailer do jogo Clair Obscur: Expedition 33. Pelo que andei pesquisando me parece ser um ótimo jogo.</p>
@@ -226,6 +285,7 @@
             </div>
         </article>
 
+        <!-- 2. Gears of War E-Day -->
         <article>
             <h2>GEARS OF WAR E-DAY</h2>
             <p>Muito bom não é mesmo!!!!</p>
@@ -244,8 +304,8 @@
             </div>
         </article>
 
+        <!-- 3. Lançamento em Destaque -->
         <article>
-            <h2>Lançamento em Destaque</h2>
             <p>Este jogo vai será animal demais .....</p>
             <p>Segue mais um jogaço!!! Olha este lançamento, pega esse trailer ai...</p>
 
@@ -261,8 +321,8 @@
             </div>
         </article>
 
+        <!-- 4. Dr. Feelgood -->
         <article id="musicas">
-            <h2>Dr. Feelgood - She Does It Right</h2>
             <p>UUHHULLL DOIDO DEMAIS</p>
             <p>Agora, escuta esse som ai, pra animar o blog!!! Som da banda chamada Dr. Feelgood, musica: she does it right.</p>
 
@@ -272,8 +332,8 @@
             </div>
         </article>
 
+        <!-- 5. Crazy Taxi -->
         <article>
-            <h2>Crazy Taxi: World Tour</h2>
             <p>É isso ai hermanos, bora pra mais um trailer de um jogo laçmento sem perder tempo</p>
             <p>Crazy Taxi: World Tour: A SEGA confirmou o retorno da clássica franquia com campanha, modo multiplayer online e corridas internacionais, com estreia prevista para 2027.</p>
 
@@ -289,8 +349,8 @@
             </div>
         </article>
 
+        <!-- 6. Metro 2039 -->
         <article>
-            <h2>Metro 2039</h2>
             <p>Bora lá, segue mais um lançamento da showcase 2026 da xobox, vida longa ao games brothers.... </p>
             <p>Metro 2039: Primeira prévia oficial de gameplay da nova e aguardada aventura na Moscou pós-apocalíptica, com lançamento previsto para fevereiro de 2027.</p>
 
@@ -306,8 +366,8 @@
             </div>
         </article>
 
+        <!-- 7. Resonance: A Plague Tale Legacy -->
         <article>
-            <h2>Resonance: A Plague Tale Legacy</h2>
             <p>Vamos lá, a este espetáculo de jogo, que estará disponível em breve e que me fez lembrar de uma filha de um grande amigo...bjus Sophia.... segue o trailer...</p>
             <p>Resonance: A Plague Tale Legacy é o novo jogo da aclamada franquia da Asobo Studio e da Focus Entertainment, com lançamento oficial confirmado para 27 de agosto de 2026</p>
 
@@ -323,8 +383,8 @@
             </div>
         </article>
 
+        <!-- 8. Som Maestro -->
         <article>
-            <h2>Música - Maestro</h2>
             <p>Solta o som MAESTRO</p>
 
             <div class="video-container">
@@ -333,8 +393,8 @@
             </div>
         </article>
 
+        <!-- 9. Super-Heróis -->
         <article>
-            <h2>Super-Heróis</h2>
             <p>Ai galera como diz a moça no trailer se você é fã de super herois se prepara que ai vem coisa boa.....valeuuu</p>
             
             <div class="video-container">
@@ -349,8 +409,8 @@
             </div>
         </article>
 
+        <!-- 10. Música das Antigas -->
         <article>
-            <h2>Música das Antigas</h2>
             <p>Boa ..boa ...bora soltar mais um som ai das antiga mas muito bom.....</p>
 
             <div class="video-container">
@@ -359,10 +419,26 @@
             </div>
         </article>
 
+        <!-- Seção de Comentários dos Internautas -->
+        <section id="comentarios" class="comments-section">
+            <h2>Comentários</h2>
+            
+            <form id="comment-form" class="comment-form">
+                <input type="text" id="author-name" placeholder="Seu nome ou apelido" required>
+                <textarea id="comment-text" rows="3" placeholder="Escreva seu comentário..." required></textarea>
+                <button type="submit">Enviar Comentário 💬</button>
+            </form>
+
+            <div id="comment-list" class="comment-list">
+                <!-- Comentários salvos via JS aparecem aqui -->
+            </div>
+        </section>
+
     </main>
 
     <script>
-        const botoes = document.querySelectorAll("button");
+        // 1. Lógica dos Botões de Curtida
+        const botoes = document.querySelectorAll("button:not([type='submit'])");
 
         botoes.forEach(function (botao) {
             botao.addEventListener("click", function () {
@@ -372,6 +448,66 @@
                 }
             });
         });
+
+        // 2. Lógica de Comentários com LocalStorage
+        const formComentario = document.getElementById("comment-form");
+        const listaComentarios = document.getElementById("comment-list");
+        const nomeInput = document.getElementById("author-name");
+        const textoInput = document.getElementById("comment-text");
+
+        // Comentários padrão iniciais (executados apenas na 1ª visita)
+        const comentariosIniciais = [
+            { nome: "Rodrigo Gamer", texto: "Show de bola o blog! Esse trailer do Gears of War E-Day tá insano demais!" }
+        ];
+
+        function adicionarComentarioNaTela(nome, texto) {
+            const novoComentario = document.createElement("div");
+            novoComentario.classList.add("comment-item");
+
+            novoComentario.innerHTML = `
+                <div class="author">${nome}</div>
+                <p class="text">${texto}</p>
+            `;
+
+            listaComentarios.appendChild(novoComentario);
+        }
+
+        function carregarComentarios() {
+            let comentariosSalvos = JSON.parse(localStorage.getItem("meusComentarios"));
+            
+            // Se for o primeiro acesso, usa os dados padrão
+            if (!comentariosSalvos) {
+                comentariosSalvos = comentariosIniciais;
+                localStorage.setItem("meusComentarios", JSON.stringify(comentariosSalvos));
+            }
+
+            listaComentarios.innerHTML = "";
+            comentariosSalvos.forEach(comentario => {
+                adicionarComentarioNaTela(comentario.nome, comentario.texto);
+            });
+        }
+
+        formComentario.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const nome = nomeInput.value.trim();
+            const texto = textoInput.value.trim();
+
+            if (nome && texto) {
+                adicionarComentarioNaTela(nome, texto);
+
+                const comentariosSalvos = JSON.parse(localStorage.getItem("meusComentarios")) || [];
+                comentariosSalvos.push({ nome, texto });
+
+                localStorage.setItem("meusComentarios", JSON.stringify(comentariosSalvos));
+
+                nomeInput.value = "";
+                textoInput.value = "";
+            }
+        });
+
+        // Carrega os comentários ao abrir a página
+        carregarComentarios();
     </script>
 </body>
 
